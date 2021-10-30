@@ -1,20 +1,16 @@
 import "./App.css";
 import TodoList from "./TodoList.js";
-import React, { useState } from "react";
+import React from "react";
 
 function App() {
-  const [name, setName] = useState("default");
-
-  function handleChange(event) {
-    setName(event.target.value);
-  }
+  /*
+  Exercise C2.1: Add a name state, controlled by an input box that reads "Todo list for [xxxxxxx]". Pass the name as a prop to TodoList
+  */
 
   return (
     <div className="App">
-      <header>
-        TodoList for <input type="text" value={name} onChange={handleChange} />
-      </header>
-      <TodoList name={name} />
+      <header>TodoList</header>
+      <TodoList />
     </div>
   );
 }

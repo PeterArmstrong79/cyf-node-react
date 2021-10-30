@@ -1,38 +1,21 @@
 const SERVER_PORT = process.env.PORT || 4000;
 const express = require("express");
-const app = express();
 const cors = require("cors");
+
+const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-let todos = {
-  default: ["clean dishes", "get shopping"],
-};
+/*
+S1: Return an array of strings for the GET /todos endpoint
+S2: Add an endpoint to allow the addition of a new todo ({value:"text for the todo"}) for the POST /todos endpoint
+S3: Add a GET todos/:name endpoint with a route parameter to allow different todo lists with different names
+S4: Add a POST todos/:name endpoint to allow posting of a new todo to different todo lists with different names
+*/
 
 app.get("/todos", (request, response) => {
-  response.status(200).send(todos.default);
-});
-
-app.post("/todos", (request, response) => {
-  todos.default.push(request.body.value);
-  response.sendStatus(200);
-});
-
-app.get("/todos/:name", (request, response) => {
-  const name = request.params.name;
-  if (todos[name] === undefined) {
-    response.status(200).send([]);
-  } else {
-    response.status(200).send(todos[name]);
-  }
-});
-
-app.post("/todos/:name", (request, response) => {
-  const name = request.params.name;
-  todos[name] = todos[name] || [];
-  todos[name].push(request.body.value);
-  response.sendStatus(200);
+  response.status(200).send([]);
 });
 
 app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`));
