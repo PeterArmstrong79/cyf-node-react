@@ -7,9 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const todos = {
-  Peter: [Eat, Play],
-};
+const todos = ["Digest food", "studyS server"];
 /*
 S1: Return an array of strings for the GET /todos endpoint
 S2: Add an endpoint to allow the addition of a new todo ({value:"text for the todo"}) for the POST /todos endpoint
