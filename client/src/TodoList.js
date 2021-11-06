@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const SERVER = "https://buttery-carbonated-garage.glitch.me";
+const SERVER = "//localhost:4000";
 
 /*
   Exercise C1.1: Render each item in the list (returned from the server) as a <li>
