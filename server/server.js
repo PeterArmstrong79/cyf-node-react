@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const todos = {
+  Peter: [Eat, Play],
+};
 /*
 S1: Return an array of strings for the GET /todos endpoint
 S2: Add an endpoint to allow the addition of a new todo ({value:"text for the todo"}) for the POST /todos endpoint
@@ -16,6 +19,9 @@ S4: Add a POST todos/:name endpoint to allow posting of a new todo to different 
 
 app.get("/todos", (request, response) => {
   response.status(200).send([]);
+});
+app.get("/todos/:name", (request, response) => {
+  response.status(200).send(todos[request.params.named]);
 });
 
 app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`));
